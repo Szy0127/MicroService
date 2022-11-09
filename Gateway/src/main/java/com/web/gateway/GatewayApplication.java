@@ -20,9 +20,9 @@ public class GatewayApplication {
 	@Bean
 	public RouteLocator myRoutes(RouteLocatorBuilder builder){
 		return builder.routes()
-//				.route(p->p.path("/author/**")
-//						.filters(f->f.rewritePath("/author",""))
-//						.uri("http://localhost:8081"))
+				.route(p->p.path("/author/**")
+						.filters(f->f.rewritePath("/author",""))
+						.uri("lb://BOOKAUTHOR"))
 				.route(p->p.path("/**")
 //						.uri("http://localhost:8081")
 						.uri("lb://BOOKSTORE")

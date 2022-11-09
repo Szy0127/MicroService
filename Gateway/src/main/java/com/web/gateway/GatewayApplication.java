@@ -23,6 +23,8 @@ public class GatewayApplication {
 				.route(p->p.path("/author/**")
 						.filters(f->f.rewritePath("/author",""))
 						.uri("lb://BOOKAUTHOR"))
+				.route(p->p.path("/websocket/**")
+						.uri("lb:wss://BOOKSTORE"))
 				.route(p->p.path("/**")
 //						.uri("http://localhost:8081")
 						.uri("lb://BOOKSTORE")
